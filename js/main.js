@@ -16,7 +16,8 @@ window.onload = function () {
         }
 }
 // get the basic data without specifications
-
+let cityOptions="Cairo"
+getData(cityOptions);
 function getData(city) {
     fetch(`http://api.aladhan.com/v1/timingsByCity?city=${city}&country=Egypt`)
     .then(response => response.json())
@@ -43,8 +44,7 @@ function getData(city) {
 function fillTimePrayers(id,time){
     document.getElementById(id).innerHTML = time
 }
-let cityOptions="Cairo"
-getData(cityOptions);
+
 let cities=["Cairo","Alexandria","Giza","Dakahlia","Suez","Port Said","Aswan","Luxor","Qena","Qalyubia","Gharbia","Asyut","Ismailia","Faiyum","Damietta","Beheira","Minya","Beni Suef","Sohag","Red Sea","Kafr el-Sheikh","North Sinai","Sharqia","Matrouh"]
 let countries=["Egypt","Tunis","Libya","Syria","Saudi Arabia","maghreb","Qatar","siria","Algeria"]
 let citySelect=document.getElementById('citySelect')
