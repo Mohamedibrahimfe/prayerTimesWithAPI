@@ -17,8 +17,8 @@ window.onload = function () {
 }
 // get the basic data without specifications
 
-function getData(city,country) {
-    fetch(`http://api.aladhan.com/v1/timingsByCity?city=${city}&country=${country}`)
+function getData(city) {
+    fetch(`http://api.aladhan.com/v1/timingsByCity?city=${city}&country=Egypt`)
     .then(response => response.json())
     .then(data => {
         let timings=data.data.timings
@@ -43,33 +43,17 @@ function getData(city,country) {
 function fillTimePrayers(id,time){
     document.getElementById(id).innerHTML = time
 }
-
-getData("Cairo","Egypt");
-
+let cityOptions="Cairo"
+getData(cityOptions);
 let cities=["Cairo","Alexandria","Giza","Dakahlia","Suez","Port Said","Aswan","Luxor","Qena","Qalyubia","Gharbia","Asyut","Ismailia","Faiyum","Damietta","Beheira","Minya","Beni Suef","Sohag","Red Sea","Kafr el-Sheikh","North Sinai","Sharqia","Matrouh"]
 let countries=["Egypt","Tunis","Libya","Syria","Saudi Arabia","maghreb","Qatar","siria","Algeria"]
-
-
-
-// fill the select options
-
-// for(country of countries){
-//     document.getElementById('selectCountry').innerHTML += `<option value="${country}">${country}</option>`
-// } 
-
-// fill the select options
-
-// customize the select
 let citySelect=document.getElementById('citySelect')
 citySelect.addEventListener('change',()=>{
-    
     cityOptions=citySelect.options[citySelect.selectedIndex].value;
-    
-    // console.log(cityOptions)
     document.getElementById('city').innerHTML=cityOptions
-    getData(cityOptions,"Egypt")
+    getData(cityOptions)
 })
-// customize();
+
 for(city of cities){
     document.getElementById('citySelect').innerHTML += `<option value="${city}">${city}</option>`
 }
