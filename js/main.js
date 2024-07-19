@@ -16,10 +16,9 @@ window.onload = function () {
         }
 }
 // get the basic data without specifications
-let cityOptions="Cairo"
 getData("Cairo");
 function getData(city) {
-    fetch(`http://api.aladhan.com/v1/timingsByCity?city=${city}&country=Egypt`)
+    fetch(`https://api.aladhan.com/v1/timingsByCity?city=${city}&country=Egypt`)
     .then(response => response.json())
     .then(data => {
         let timings=data.data.timings
