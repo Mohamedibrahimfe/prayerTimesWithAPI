@@ -1,4 +1,4 @@
-// change background image every 15 seconds
+// change background image every 1 minute
 window.onload = function () {
     // Array of Images
     let BackgroundImg=[
@@ -9,7 +9,7 @@ window.onload = function () {
         "./images/pexels-mutecevvil-18712382.jpg",
         "./images/pexels-yasirgurbuz-11659955.jpg"
     ];
-    setInterval(changeImage, 15000);
+    setInterval(changeImage, 60000);
     function changeImage() {   
         let i = Math.floor((Math.random() * 6));
         document.body.style.backgroundImage = "url('"+BackgroundImg[i]+"')";
